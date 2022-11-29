@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretty Cats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="" class="logo">Pretty Cats</a>
+            <nav>
+                <a href="" id="user">Обновить пользователя</a>
+                <a href="" class="btn" id="add">Добавить</a>
+            </nav>
+        </header>
+        <main></main>
+        <footer>©2022 Frontend 8 - Pretty Cats</footer>
+    </div>
+    <div class="popup-wrapper">
+        <!-- <div class="popup">
+            <div class="popup__close"></div>
+            <div class="popup__content"></div>
+        </div> -->
+        <div class="popup popup-add">
+            <div class="popup__close"></div>
+            <div class="popup__content">
+                <form id="addForm">
+                    <h2>Добавить котика</h2>
+                    <input type="text" name="name" placeholder="Имя котика" required>
+                    <input type="number" name="id" placeholder="id" required>
+                    <input type="text" name="img_link" placeholder="Ссылка на картинку">
+                    <input type="number" name="age" placeholder="Возраст" min="0">
+                    <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
+                    <label for="fav">
+                        <input type="checkbox" name="favourite">
+                        Любимчик
+                    </label>
+                    <textarea name="description" placeholder="Описание"></textarea>
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup-upd">
+            <div class="popup__close"></div>
+            <div class="popup__content">
+                <form id="updForm">
+                    <h2>Изменить котика</h2>
+                    <input type="text" name="name" placeholder="Имя котика" required>
+                    <input type="number" name="id" placeholder="id" disabled>
+                    <input type="text" name="img_link" placeholder="Ссылка на картинку">
+                    <input type="number" name="age" placeholder="Возраст" min="0">
+                    <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
+                    <label for="fav">
+                        <input type="checkbox" name="favourite">
+                        Любимчик
+                    </label>
+                    <textarea name="description" placeholder="Описание"></textarea>
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- 
+    localStorage.getItem("obj")
+    => '[object Object]'
+    localStorage.setItem("obj", JSON.stringify({n: "6"}))
+    localStorage.getItem("obj")
+    => '{"n":"6"}'
+    JSON.parse(localStorage.getItem("obj"));
+    => {n: '6'}
+-->
