@@ -70,7 +70,7 @@ const createCard = function(cat, parent) {
 	name.innerText = cat.name;
 
 	const del = document.createElement("button");
-	del.innerText = "Удалить";
+	del.innerText = "Удалить котика";
 	del.id = cat.id;
 	del.addEventListener("click", function(e) {
 		let id = e.target.id;
@@ -78,7 +78,7 @@ const createCard = function(cat, parent) {
 	});
 
 	const upd = document.createElement("button");
-	upd.innerText = "Обновить";
+	upd.innerText = "Обновить котика";
 	upd.addEventListener("click", function(e) {
 		popupUpd.classList.add("active");
 		popupBlock.classList.add("active");
