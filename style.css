@@ -96,8 +96,15 @@ button:hover, .btn:hover, #user:hover {
 	background-repeat: no-repeat;
 	background-color: #dedede;
 	height: 180px;
+	border: 1px solid;
 	border-radius: 10px;
 }
+
+.card-pic:hover{
+	transform: rotate(4grad);
+	cursor:  pointer;
+}
+
 .card h3 {
 	text-align: center;
 }
