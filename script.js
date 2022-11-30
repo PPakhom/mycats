@@ -94,26 +94,26 @@ const createCard = function(cat, parent) {
 	})
 
 /////////////////////////
-        const showInfo = function(data) {
-        	for (let i = 0; i < infoForm.elements.length; i++) {
-        		let el = infoForm.elements[i];
-        		if (el.name) {
-        			if (el.type !== "checkbox") {
-        				el.value = data[el.name] ? data[el.name] : "";
-        			} else {
-        				el.checked = data[el.name];
-        			}
-        		}
-        	}
-        }
+    const showInfo = function(data) {
+    	for (let i = 0; i < infoForm.elements.length; i++) {
+    		let el = infoForm.elements[i];
+    		if (el.name) {
+    			if (el.type !== "checkbox") {
+    				el.value = data[el.name] ? data[el.name] : "";
+    			} else {
+    				el.checked = data[el.name];
+    			}
+    		}
+    	}
+    }
 
-        img.addEventListener("click", function(e) {
-	    popupInfo.classList.add("active");
-	    popupBlock.classList.add("active");
-	    showInfo(cat);
-	 //   updForm.setAttribute("data-id", cat.id);
+    img.addEventListener("click", function(e) {
+    popupInfo.classList.add("active");
+    popupBlock.classList.add("active");
+    showInfo(cat);
+
 })
-
+/// Это потом можно удалить
 // const infoCat = async function(obj, id) {
 // 	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/show/${id}`, {
 // 		method: "GET",
