@@ -86,6 +86,8 @@ button {
 
 button:hover, .btn:hover, #user:hover {
 	color:chocolate;
+	cursor:  pointer;
+
 }
 
 .card-pic {
