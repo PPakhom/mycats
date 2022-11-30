@@ -83,6 +83,11 @@ button {
 	font-size: 20px;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+button:hover, .btn:hover, #user:hover {
+	color:chocolate;
+}
+
 .card-pic {
 	background-position: center;
 	background-size: cover;
