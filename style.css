@@ -101,8 +101,8 @@ button:hover, .btn:hover, #user:hover {
 }
 
 .card-pic:hover{
-	transform: rotate(4grad);
-	cursor:  pointer;
+	transform: rotate(4deg);
+	cursor: pointer;
 }
 
 .card h3 {
