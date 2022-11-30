@@ -73,11 +73,15 @@ main {
 	padding: 10px;
 	border: 2px solid;
 	border-radius: 10px;
+	font-size: 30px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 button {
 	border: 1px solid;
 	border-radius: 8px;
+	font-size: 20px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .card-pic {
 	background-position: center;
