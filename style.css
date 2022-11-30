@@ -19,11 +19,20 @@ header a {
     border-radius: 10px;
     padding: 10px;
 }
+
+.btn, #user {
+	font-size: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
 .wrapper {
 	width: 1000px;
 	margin: auto;
 	min-height: 100vh;
-	background: orange;
+	background: burlywood;
 	display: grid;
 	gap: 30px;
 	grid-template-rows: 70px 1fr 50px;
@@ -60,9 +69,15 @@ main {
 .card {
 	display: flex;
 	flex-direction: column;
-	gap:  20px;
+	gap: 20px;
 	padding: 10px;
-	border:  1px solid;
+	border: 2px solid;
+	border-radius: 10px;
+}
+
+button {
+	border: 1px solid;
+	border-radius: 8px;
 }
 .card-pic {
 	background-position: center;
@@ -70,6 +85,7 @@ main {
 	background-repeat: no-repeat;
 	background-color: #dedede;
 	height: 180px;
+	border-radius: 10px;
 }
 .card h3 {
 	text-align: center;
@@ -77,10 +93,10 @@ main {
 
 .popup-wrapper {
 	position: fixed;
-	top:  0;
-	left:  0;
-	right:  0;
-	bottom:  0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	background-color: #0008;
 	backdrop-filter: blur(1px);
 	justify-content: center;
@@ -100,6 +116,8 @@ main {
 }
 .popup.active {
 	display: block;
+	border-radius: 10px;
+	background-color: rgb(213, 193, 167);
 }
 .popup__close {
 	width: 30px;
@@ -124,5 +142,5 @@ main {
 
 form {
 	display: grid;
-	gap:  20px;
+	gap: 20px;
 }
