@@ -6,6 +6,10 @@ const addForm = document.forms.addForm;
 const updForm = document.forms.updForm;
 const cards = document.getElementsByClassName("card");
 let cats;
+//
+const popupInfo = popupBlock.querySelector(".popup-info");
+const infoForm = document.forms.infoForm;
+//
 
 document.getElementById("user").addEventListener("click", function() {
 	localStorage.removeItem("catUser");
@@ -18,6 +22,9 @@ popupBlock.querySelectorAll(".popup__close").forEach(function(btn) {
 		btn.parentElement.classList.remove("active");
 		if (btn.parentElement.classList.contains("popup-upd")) {
 			updForm.dataset.id = "";
+			//
+			//infoForm
+			//
 		}
 	});
 });
@@ -78,13 +85,61 @@ const createCard = function(cat, parent) {
 	});
 
 	const upd = document.createElement("button");
-	upd.innerText = "Обновить котика";
+	upd.innerText = "Изменить котика";
 	upd.addEventListener("click", function(e) {
 		popupUpd.classList.add("active");
 		popupBlock.classList.add("active");
 		showForm(cat);
 		updForm.setAttribute("data-id", cat.id);
 	})
+
+/////////////////////////
+        const showInfo = function(data) {
+        	for (let i = 0; i < infoForm.elements.length; i++) {
+        		let el = infoForm.elements[i];
+        		if (el.name) {
+        			if (el.type !== "checkbox") {
+        				el.value = data[el.name] ? data[el.name] : "";
+        			} else {
+        				el.checked = data[el.name];
+        			}
+        		}
+        	}
+        }
+
+        img.addEventListener("click", function(e) {
+	    popupInfo.classList.add("active");
+	    popupBlock.classList.add("active");
+	    showInfo(cat);
+	 //   updForm.setAttribute("data-id", cat.id);
+})
+
+// const infoCat = async function(obj, id) {
+// 	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/show/${id}`, {
+// 		method: "GET",
+// 		headers: {
+// 			"Content-Type": "application/json",
+// 		},
+// 		body: JSON.stringify(obj)
+// 	})
+// 	let answer = await res.json();
+// 	if (answer.message === "ok") {
+//         cats = cats.map(el => {
+//             if (+el.id === +id) {
+//                 return {...el, ...obj};
+//             } else {
+//                 return el;
+//             }
+//         });
+//         localStorage.setItem("catArr", JSON.stringify(cats));
+//         setCards(cats);
+// 		infoForm.reset();
+// 		infoForm.dataset.id = "";
+// 		popupInfo.classList.remove("active");
+// 		popupBlock.classList.remove("active");
+// 	}
+// }
+/////////////////////
 
 	card.append(img, name, del, upd);
 	parent.append(card);
