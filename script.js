@@ -5,11 +5,9 @@ const popupUpd = popupBlock.querySelector(".popup-upd");
 const addForm = document.forms.addForm;
 const updForm = document.forms.updForm;
 const cards = document.getElementsByClassName("card");
-let cats;
-//
 const popupInfo = popupBlock.querySelector(".popup-info");
 const infoForm = document.forms.infoForm;
-//
+let cats;
 
 document.getElementById("user").addEventListener("click", function() {
 	localStorage.removeItem("catUser");
@@ -22,9 +20,6 @@ popupBlock.querySelectorAll(".popup__close").forEach(function(btn) {
 		btn.parentElement.classList.remove("active");
 		if (btn.parentElement.classList.contains("popup-upd")) {
 			updForm.dataset.id = "";
-			//
-			//infoForm
-			//
 		}
 	});
 });
@@ -47,6 +42,7 @@ const showForm = function(data) {
 		}
 	}
 }
+
 const deleteCat = async function(id, tag) {
 	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/delete/${id}`, {
 		method: "DELETE"
@@ -93,7 +89,6 @@ const createCard = function(cat, parent) {
 		updForm.setAttribute("data-id", cat.id);
 	})
 
-/////////////////////////
     const showInfo = function(data) {
     	for (let i = 0; i < infoForm.elements.length; i++) {
     		let el = infoForm.elements[i];
@@ -108,48 +103,22 @@ const createCard = function(cat, parent) {
     }
 
     img.addEventListener("click", function(e) {
-    popupInfo.classList.add("active");
-    popupBlock.classList.add("active");
-    showInfo(cat);
-
-})
-/// Это потом можно удалить
-// const infoCat = async function(obj, id) {
-// 	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/show/${id}`, {
-// 		method: "GET",
-// 		headers: {
-// 			"Content-Type": "application/json",
-// 		},
-// 		body: JSON.stringify(obj)
-// 	})
-// 	let answer = await res.json();
-// 	if (answer.message === "ok") {
-//         cats = cats.map(el => {
-//             if (+el.id === +id) {
-//                 return {...el, ...obj};
-//             } else {
-//                 return el;
-//             }
-//         });
-//         localStorage.setItem("catArr", JSON.stringify(cats));
-//         setCards(cats);
-// 		infoForm.reset();
-// 		infoForm.dataset.id = "";
-// 		popupInfo.classList.remove("active");
-// 		popupBlock.classList.remove("active");
-// 	}
-// }
-/////////////////////
+        popupInfo.classList.add("active");
+        popupBlock.classList.add("active");
+        showInfo(cat);
+    })
 
 	card.append(img, name, del, upd);
 	parent.append(card);
 }
+
 const setCards = function(arr) {
     container.innerHTML = "";
     arr.forEach(function(el) {
         createCard(el, container);
     })
 }
+
 const addCat = function(cat) {
 	fetch(`https://sb-cats.herokuapp.com/api/2/${user}/add`, {
 		method: "POST",
@@ -169,6 +138,7 @@ const addCat = function(cat) {
 			}
 		})
 }
+
 const updCat = async function(obj, id) {
 	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/update/${id}`, {
 		method: "PUT",
@@ -195,17 +165,15 @@ const updCat = async function(obj, id) {
 	}
 }
 
-
-
 let user = localStorage.getItem("catUser");
 if (!user) {
     user = prompt("Представьтесь, пожалуйста")
 	localStorage.setItem("catUser", user);
 }
 
-cats = localStorage.getItem("catArr"); // "[{},{}]"
+cats = localStorage.getItem("catArr");
 if (cats) {
-    cats = JSON.parse(cats); // [{}, {}]
+    cats = JSON.parse(cats);
     setCards(cats);
 } else {
     fetch(`https://sb-cats.herokuapp.com/api/2/${user}/show`)
@@ -219,14 +187,32 @@ if (cats) {
 	});
 }
 
+const maxId = (array) => {
+    const arr = array.map(el => el.id);
+    arr.sort((a, b) => a - b);
+    return(arr[arr.length - 1]);
+}
+
 addForm.addEventListener("submit", function(e) {
 	e.preventDefault();
 	let body = {}; 
 	for (let i = 0; i < addForm.elements.length; i++) {
 		let el = addForm.elements[i];
 		if (el.name) {
-			body[el.name] = el.name === "favourite" ? el.checked : el.value;
-		}
+            if(el.name === "id") {
+                body[el.name] = maxId(cats);
+            } else {
+			    body[el.name] = el.name === "favourite" ? el.checked : el.value;
+            }
+
+		if (el.name) {
+            body[el.name] = el.name === "favourite"
+                ? el.checked
+                : el.name === "id" 
+                    ? maxId(cats) + 1
+                    : el.value;
+            }
+        }
 	}
 	addCat(body);
 });

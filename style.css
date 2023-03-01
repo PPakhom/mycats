@@ -6,20 +6,16 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
-
 header a {
     font-size: 20px;
     font-weight: 600;
-    /* margin-right: 25px; */
 }
-
 .logo {
 	font-size: 30px;
     border: 3px solid white;
     border-radius: 10px;
     padding: 10px;
 }
-
 .btn, #user {
 	font-size: 20px;
     border: 1px solid white;
@@ -27,7 +23,6 @@ header a {
     padding: 10px;
 
 }
-
 .wrapper {
 	width: 1000px;
 	margin: auto;
@@ -54,11 +49,9 @@ header {
 footer {
 	justify-content: center;
 }
-
 h1, h2, h3 {
 	margin: 0;
 }
-
 main {
 	padding: 0 30px;
 	display: grid;
@@ -76,20 +69,17 @@ main {
 	font-size: 30px;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 button {
 	border: 1px solid;
 	border-radius: 8px;
 	font-size: 20px;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 button:hover, .btn:hover, #user:hover {
 	color:chocolate;
 	cursor:  pointer;
 
 }
-
 .card-pic {
 	background-position: center;
 	background-size: cover;
@@ -99,16 +89,13 @@ button:hover, .btn:hover, #user:hover {
 	border: 1px solid;
 	border-radius: 10px;
 }
-
 .card-pic:hover{
 	transform: rotate(4deg);
 	cursor: pointer;
 }
-
 .card h3 {
 	text-align: center;
 }
-
 .popup-wrapper {
 	position: fixed;
 	top: 0;
@@ -124,7 +111,6 @@ button:hover, .btn:hover, #user:hover {
 .popup-wrapper.active {
 	display: flex;
 }
-
 .popup {
 	width: 300px;
 	padding: 20px;
@@ -161,4 +147,12 @@ button:hover, .btn:hover, #user:hover {
 form {
 	display: grid;
 	gap: 20px;
+}
+#infoForm input {
+    background-color: #dedede;
+    border: none;
+    font-weight: bold;
+}
+#info_fav {
+    border-color: blue;
 }

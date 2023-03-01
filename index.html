@@ -20,17 +20,13 @@
         <footer>©2022 Frontend 8 - Pretty Cats</footer>
     </div>
     <div class="popup-wrapper">
-        <!-- <div class="popup">
-            <div class="popup__close"></div>
-            <div class="popup__content"></div>
-        </div> -->
         <div class="popup popup-add">
             <div class="popup__close"></div>
             <div class="popup__content">
                 <form id="addForm">
                     <h2>Добавить котика</h2>
                     <input type="text" name="name" placeholder="Имя котика" required>
-                    <input type="number" name="id" placeholder="id" required>
+                    <!-- <input type="number" name="id" placeholder="id" required> -->
                     <input type="text" name="img_link" placeholder="Ссылка на картинку">
                     <input type="number" name="age" placeholder="Возраст" min="0">
                     <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
@@ -48,28 +44,58 @@
             <div class="popup__content">
                 <form id="updForm">
                     <h2>Изменить котика</h2>
-                    <input type="text" name="name" placeholder="Имя котика" required>
-                    <input type="number" name="id" placeholder="id" disabled>
-                    <input type="text" name="img_link" placeholder="Ссылка на картинку">
-                    <input type="number" name="age" placeholder="Возраст" min="0">
-                    <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
-                    <label for="fav1">
-                        <input type="checkbox" id="fav1" name="favourite">
+                    <label for="upd_name">
+                        <div>Имя котика</div>
+                        <input type="text" id="upd_name" name="name" placeholder="Имя котика" required>
+                    </label>
+                    <!-- <input type="number" name="id" placeholder="id" disabled> -->
+                    <label for="upd_img">
+                        <div>Изображение</div>
+                        <input type="text" id="upd_img" name="img_link" placeholder="Ссылка на картинку">
+                    </label>
+                    <label for="upd_age">
+                        <div>Возраст</div>
+                        <input type="number" id="upd_age" name="age" placeholder="Возраст" min="0">
+                    </label>
+                    <label for="upd_rate">
+                        <div>Рейтинг</div>
+                        <input type="number" id="upd_rate" name="rate" placeholder="Рейтинг" min="0" max="10"> 
+                    </label>
+                    <label for="upd_fav">
+                        <input type="checkbox" id="upd_fav" name="favourite">
                         Любимчик
                     </label>
-                    <textarea name="description" placeholder="Описание"></textarea>
+                    <textarea name="description" placeholder="Описание" rows="3"></textarea>
                     <button type="submit">Изменить</button>
                 </form>
             </div>
         </div>
-<!--  -->
         <div class="popup popup-info">
             <div class="popup__close"></div>
             <div class="popup__content">
                 <form id="infoForm">
                     <h2>Информация о котике</h2>
-                    <input type="text" name="name" placeholder="Имя котика" required>
-                    <input type="number" name="id" placeholder="id" disabled>
+                        <div>Имя котика</div>
+                        <input type="text" name="name" placeholder="Имя котика" disabled>
+                        <div>Изображение</div>
+                        <input type="text"name="img_link" placeholder="Ссылка на картинку" disabled>
+                        <div>Возраст</div>
+                        <input type="number" name="age" placeholder="Возраст" min="0" disabled>
+                        <div>Рейтинг</div>
+                        <input type="number"name="rate" placeholder="Рейтинг" min="0" max="10" disabled> 
+                        <label for="info_fav">
+                            <input type="checkbox" id="info_fav" name="favourite" disabled>
+                            Любимчик
+                        </label>
+                    <textarea name="description" placeholder="Описание" rows="3" disabled></textarea>
+
+
+
+
+
+
+
+                    <!-- <input type="text" name="name" placeholder="Имя котика" disabled>
                     <input type="text" name="img_link" placeholder="Ссылка на картинку">
                     <input type="number" name="age" placeholder="Возраст" min="0">
                     <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
@@ -77,23 +103,11 @@
                         <input type="checkbox" id="fav1" name="favourite">
                         Любимчик
                     </label>
-                    <textarea name="description" placeholder="Описание"></textarea>
-                    <!-- <button type="submit">Добавить</button> -->
+                    <textarea name="description" placeholder="Описание" rows="3"></textarea> -->
                 </form>
             </div>
         </div>
-<!--  -->
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
-<!-- 
-    localStorage.getItem("obj")
-    => '[object Object]'
-    localStorage.setItem("obj", JSON.stringify({n: "6"}))
-    localStorage.getItem("obj")
-    => '{"n":"6"}'
-    JSON.parse(localStorage.getItem("obj"));
-    => {n: '6'}
--->
