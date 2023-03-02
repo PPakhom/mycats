@@ -44,7 +44,7 @@ const showForm = function(data) {
 }
 
 const deleteCat = async function(id, tag) {
-	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/delete/${id}`, {
+	let res = await fetch(`https://srv.petiteweb.dev/api/2/${user}/delete/${id}`, {
 		method: "DELETE"
 	});
 	let data = await res.json();
@@ -83,8 +83,8 @@ const createCard = function(cat, parent) {
 	const upd = document.createElement("button");
 	upd.innerText = "Изменить котика";
 	upd.addEventListener("click", function(e) {
-		popupUpd.classList.add("active");
 		popupBlock.classList.add("active");
+		popupUpd.classList.add("active");
 		showForm(cat);
 		updForm.setAttribute("data-id", cat.id);
 	})
@@ -120,7 +120,7 @@ const setCards = function(arr) {
 }
 
 const addCat = function(cat) {
-	fetch(`https://sb-cats.herokuapp.com/api/2/${user}/add`, {
+	fetch(`https://srv.petiteweb.dev/api/2/${user}/add`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -134,13 +134,14 @@ const addCat = function(cat) {
                 cats.push(cat);
                 localStorage.setItem("catArr", JSON.stringify(cats))
 				addForm.reset();
+                popupAdd.classList.remove("active");
 				popupBlock.classList.remove("active");
 			}
 		})
 }
 
 const updCat = async function(obj, id) {
-	let res = await fetch(`https://sb-cats.herokuapp.com/api/2/${user}/update/${id}`, {
+	let res = await fetch(`https://srv.petiteweb.dev/api/2/${user}/update/${id}`, {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
@@ -176,7 +177,7 @@ if (cats) {
     cats = JSON.parse(cats);
     setCards(cats);
 } else {
-    fetch(`https://sb-cats.herokuapp.com/api/2/${user}/show`)
+    fetch(`https://srv.petiteweb.dev/api/2/${user}/show`)
 	.then(res => res.json())
 	.then(result => {
 		if (result.message === "ok") {
@@ -199,21 +200,10 @@ addForm.addEventListener("submit", function(e) {
 	for (let i = 0; i < addForm.elements.length; i++) {
 		let el = addForm.elements[i];
 		if (el.name) {
-            if(el.name === "id") {
-                body[el.name] = maxId(cats);
-            } else {
-			    body[el.name] = el.name === "favourite" ? el.checked : el.value;
-            }
-
-		if (el.name) {
-            body[el.name] = el.name === "favourite"
-                ? el.checked
-                : el.name === "id" 
-                    ? maxId(cats) + 1
-                    : el.value;
-            }
+			body[el.name] = el.name === "favourite" ? el.checked : el.value;
         }
-	}
+    }
+    body["id"] = maxId(cats) + 1;
 	addCat(body);
 });
 

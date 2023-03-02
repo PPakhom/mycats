@@ -26,7 +26,7 @@
                 <form id="addForm">
                     <h2>Добавить котика</h2>
                     <input type="text" name="name" placeholder="Имя котика" required>
-                    <!-- <input type="number" name="id" placeholder="id" required> -->
+                    <input type="number" name="id" placeholder="id" required>
                     <input type="text" name="img_link" placeholder="Ссылка на картинку">
                     <input type="number" name="age" placeholder="Возраст" min="0">
                     <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
@@ -34,7 +34,7 @@
                         <input type="checkbox" id="fav" name="favourite">
                         Любимчик
                     </label>
-                    <textarea name="description" placeholder="Описание"></textarea>
+                    <textarea name="description" placeholder="Описание" rows="3"></textarea>
                     <button type="submit">Добавить</button>
                 </form>
             </div>
@@ -48,7 +48,7 @@
                         <div>Имя котика</div>
                         <input type="text" id="upd_name" name="name" placeholder="Имя котика" required>
                     </label>
-                    <!-- <input type="number" name="id" placeholder="id" disabled> -->
+                    <input type="number" name="id" placeholder="id" required>
                     <label for="upd_img">
                         <div>Изображение</div>
                         <input type="text" id="upd_img" name="img_link" placeholder="Ссылка на картинку">
@@ -88,22 +88,6 @@
                             Любимчик
                         </label>
                     <textarea name="description" placeholder="Описание" rows="3" disabled></textarea>
-
-
-
-
-
-
-
-                    <!-- <input type="text" name="name" placeholder="Имя котика" disabled>
-                    <input type="text" name="img_link" placeholder="Ссылка на картинку">
-                    <input type="number" name="age" placeholder="Возраст" min="0">
-                    <input type="number" name="rate" placeholder="Рейтинг" min="0" max="10"> 
-                    <label for="fav1">
-                        <input type="checkbox" id="fav1" name="favourite">
-                        Любимчик
-                    </label>
-                    <textarea name="description" placeholder="Описание" rows="3"></textarea> -->
                 </form>
             </div>
         </div>

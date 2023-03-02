@@ -153,6 +153,13 @@ form {
     border: none;
     font-weight: bold;
 }
-#info_fav {
-    border-color: blue;
+#addForm input {
+    background-color: #fff;
+    border: none;
+    font-weight: bold;
+}
+#updForm input {
+    background-color: #fff;
+    border: none;
+    font-weight: bold;
 }
